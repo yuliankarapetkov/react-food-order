@@ -1,8 +1,10 @@
 import { Fragment } from 'react';
 
+import CartButton from './CartButton';
+
 import styles from './Header.module.css';
 
-const Header = props => {
+const Header = () => {
     const IMAGE_URL = 'https://chooseveg.com/mercy4animals.wpengine.com/sites/445/2018/11/Healthy-Foods-1440x570.jpg';
 
     return (
@@ -10,9 +12,7 @@ const Header = props => {
             <header className={styles.header}>
                 <h1>Food Order</h1>
 
-                <button>
-                    Cart
-                </button>
+                <CartButton />
             </header>
             
             <div className={styles['main-image']}>
