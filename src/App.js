@@ -1,5 +1,5 @@
 import Cart from './components/Cart/Cart';
-import { Fragment } from 'react';
+import CartProvider from './store/CartProvider';
 import Header from './components/Layout/Header';
 import Meals from './components/Meals/Meals';
 
@@ -14,13 +14,13 @@ function App() {
   const hideCart = () => setCartVisible(false);
 
   return (
-    <Fragment>
+    <CartProvider>
       {cartVisible && <Cart onClose={hideCart} />}
 
       <Header onCartClick={showCart} />
 
       <Meals />
-    </Fragment>
+    </CartProvider>
   );
 }
 
