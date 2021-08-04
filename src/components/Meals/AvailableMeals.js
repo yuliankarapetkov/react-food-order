@@ -1,3 +1,6 @@
+import Card from '../Shared/Card';
+import Meal from './Meal/Meal';
+
 import styles from './AvailableMeals.module.css';
 
 const DUMMY_MEALS = [
@@ -32,15 +35,15 @@ const AvailableMeals = () => {
 
     return (
         <section className={styles.meals}>
+          <Card>
             <ul>
                 {meals.map(meal => {
                     return (
-                        <li key={meal.id}>
-                            {meal.name}
-                        </li>
+                        <Meal key={meal.id} {...meal} />
                     )
                 })}
             </ul>
+          </Card>
         </section>
     )
 };
