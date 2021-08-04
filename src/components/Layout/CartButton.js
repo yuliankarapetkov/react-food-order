@@ -2,9 +2,13 @@ import CartIcon from '../Shared/CartIcon';
 
 import styles from './CartButton.module.css';
 
-const CartButton = () => {
+const CartButton = ({ onClick }) => {
     return (
-        <button type="button" className={styles.button}>
+        <button
+            type="button"
+            className={styles.button}
+            onClick={onClick}
+        >
             <span className={styles.icon}>
                 <CartIcon />
             </span>

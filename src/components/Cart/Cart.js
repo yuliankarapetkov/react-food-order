@@ -10,11 +10,11 @@ const DUMMY_ITEMS = [
     }
 ];
 
-const Cart = props => {
+const Cart = ({ onClose }) => {
     const cartItems = [...DUMMY_ITEMS];
 
     return (
-        <Modal>
+        <Modal onClose={onClose}>
             <ul className={styles['cart-items']}>
                 {cartItems.map(cartItem => (
                     <li key={cartItem.id}>{cartItem.name}</li>
@@ -27,7 +27,11 @@ const Cart = props => {
             </div>
 
             <div className={styles.actions}>
-                <button className={styles['button-alt']}>
+                <button
+                    type="button"
+                    className={styles['button-alt']}
+                    onClick={onClose}
+                >
                     Close
                 </button>
 

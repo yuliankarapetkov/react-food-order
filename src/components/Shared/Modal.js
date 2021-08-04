@@ -5,15 +5,15 @@ import styles from './Modal.module.css';
 
 const overlaysElement = document.getElementById('overlays');
 
-const Modal = props => {
+const Modal = ({ onClose, children }) => {
     return ReactDOM
         .createPortal(
             (<Fragment>
-                <div className={styles.backdrop} />
+                <div className={styles.backdrop} onClick={onClose} />
 
                 <div className={styles.modal}>
                     <div className={styles.content}>
-                        {props.children}
+                        {children}
                     </div>
                 </div>
             </Fragment>),
