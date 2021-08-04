@@ -1,12 +1,21 @@
 import CartContext from './CartContext';
 
+import { useReducer } from 'react';
+
+import { cartReducer, defaultState } from './cartReducer';
+
 const CartProvider = props => {
-    const addItem = item => {};
+    const [{ items, totalAmount }, dispatch] = useReducer(cartReducer, defaultState);
+
+    const addItem = item => {
+        dispatch({ type: 'ADD', payload: item });
+    };
+
     const removeItem = id => {};
 
     const context = {
-        items: [],
-        totalAmount: 0,
+        items,
+        totalAmount,
         addItem,
         removeItem
     };
