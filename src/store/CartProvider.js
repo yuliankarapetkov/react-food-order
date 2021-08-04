@@ -11,7 +11,9 @@ const CartProvider = props => {
         dispatch({ type: 'ADD', payload: item });
     };
 
-    const removeItem = id => {};
+    const removeItem = id => {
+        dispatch({ type: 'REMOVE', payload: id });
+    };
 
     const context = {
         items,

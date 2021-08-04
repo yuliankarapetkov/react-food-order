@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import styles from './Cart.module.css';
 
 const Cart = ({ onClose }) => {
-    const { items, totalAmount } = useContext(CartContext);
+    const { items, totalAmount, addItem, removeItem } = useContext(CartContext);
 
     const formattedTotalAmount = `$${totalAmount.toFixed(2)}`;
 
@@ -16,6 +16,8 @@ const Cart = ({ onClose }) => {
                     <CartItem
                         key={cartItem.id}
                         {...cartItem}
+                        onAdd={() => addItem({ ...cartItem, amount: 1 })}
+                        onRemove={() => removeItem(cartItem.id)}
                     />
                 ))}
             </ul>
